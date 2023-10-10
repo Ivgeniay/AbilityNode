@@ -18,16 +18,14 @@ namespace AbilityNodeEditor
 
             GUILayout.BeginArea(ViewRect);
             GUILayout.Space(60);
-            //GUILayout.BeginHorizontal();
-            //GUILayout.Space(30);
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(30);
             
-            if (curGraph && curGraph.SelectedNode)
-                curGraph.SelectedNode.DrawNodeProperties();
-            else
-                EditorGUILayout.LabelField("SELECT NODE");
+            if (curGraph != null && curGraph.SelectedNode != null) curGraph?.SelectedNode?.DrawNodeProperties();
+            else EditorGUILayout.LabelField("SELECT NODE");
              
-            //GUILayout.Space(30);
-            //GUILayout.EndHorizontal();
+            GUILayout.Space(30);
+            GUILayout.EndHorizontal();
             GUILayout.EndArea();
 
             ProcessEvents(e);
