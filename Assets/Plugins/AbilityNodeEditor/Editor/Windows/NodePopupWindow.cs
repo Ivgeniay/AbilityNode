@@ -7,12 +7,12 @@ using AbilityNodeEditor;
 using UnityEditor;
 #endif
 
-public class NodePopupWindow : EditorWindow
+internal class NodePopupWindow : EditorWindow
 {
     private static NodePopupWindow curPopup;
     private string name = "Enter Node Name...";
     
-    public static void IniNodePopup()
+    internal static void IniNodePopup()
     {
         curPopup = EditorWindow.GetWindow<NodePopupWindow>();
         curPopup.titleContent.text = "Node Popup";

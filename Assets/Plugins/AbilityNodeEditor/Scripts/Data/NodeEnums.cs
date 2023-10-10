@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace AbilityNodeEditor
 {
-    public class NodeEnums : MonoBehaviour
+    internal class NodeEnums : MonoBehaviour
     {
 
     }
 
-    public enum NodeType
+    internal enum NodeType
     {
         RootAbilityNode,
         AbilityNode

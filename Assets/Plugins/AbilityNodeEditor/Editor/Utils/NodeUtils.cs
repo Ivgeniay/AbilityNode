@@ -11,9 +11,9 @@ using UnityEditor;
 
 namespace AbilityNodeEditor
 {
-    public static class NodeUtils
+    internal static class NodeUtils
     {
-        public static NodeGraph CreateNewGraph(string name)
+        internal static NodeGraph CreateNewGraph(string name)
         {
             NodeGraph curGraph = ScriptableObject.CreateInstance<NodeGraph>();
             if (curGraph)
@@ -36,7 +36,7 @@ namespace AbilityNodeEditor
             return curGraph;
 
         }
-        public static void LoadGraph()
+        internal static void LoadGraph()
         {
             NodeGraph curGraph = null;
             string grathPath = EditorUtility.OpenFilePanel("Load Graph", Application.dataPath + "/Plugins/AbilityNodeEditor/Database", "asset");
@@ -56,7 +56,7 @@ namespace AbilityNodeEditor
             }
         }
 
-        public static void CreateNode(NodeGraph nodeGraph, NodeType nodeType, Vector2 mousePos)
+        internal static void CreateNode(NodeGraph nodeGraph, NodeType nodeType, Vector2 mousePos)
         {
             if (nodeGraph != null)
             {
@@ -86,13 +86,13 @@ namespace AbilityNodeEditor
         }
 
 
-        public static void UnloadGraph()
+        internal static void UnloadGraph()
         {
             NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>();
             curWindow?.UnloadGraph();
         }
 
-        public static void DrawLine(Vector3 pointA, Vector3 pointB)
+        internal static void DrawLine(Vector3 pointA, Vector3 pointB)
         {
             Handles.BeginGUI();
             Handles.color = Color.white;
@@ -100,14 +100,14 @@ namespace AbilityNodeEditor
             Handles.EndGUI();
         }
 
-        public static void DrawLineBetween(NodeInput nodeInput, NodeOutput nodeOutput)
+        internal static void DrawLineBetween(NodeInput nodeInput, NodeOutput nodeOutput)
         {
             DrawLine(nodeInput.PointConnection, nodeOutput.PointConnection);
             //new Vector3(nodeOutput.Position.x + 24, nodeOutput.Position.y + 12, 0), 
             //new Vector3(nodeInput.Position.x, nodeInput.Position.y + 12, 0));
         }
 
-        public static void DrawLineToInput(BaseNode from, NodeInput nodeInput)
+        internal static void DrawLineToInput(BaseNode from, NodeInput nodeInput)
         {
             //DrawLine(nodeInput.PointConnection, new Vector3(from.NodeRect.x - 24f, from.NodeRect.y + from.NodeRect.height / 3 - 12f));
 
@@ -117,7 +117,7 @@ namespace AbilityNodeEditor
                                 new Vector3(from.NodeRect.x - 24f, from.NodeRect.y + from.NodeRect.height / 3 - 12f));
         }
 
-        public static Vector3 GetNodeConnectionPosition(Vector3 nodePosition, ConnectionNodeSide nodeSide)
+        internal static Vector3 GetNodeConnectionPosition(Vector3 nodePosition, ConnectionNodeSide nodeSide)
         {
             switch (nodeSide)
             {
@@ -129,21 +129,38 @@ namespace AbilityNodeEditor
             
         }
 
-        public static void DeleteNode(NodeGraph nodeGraph, int nodeNumber) => DeleteNode(nodeGraph, nodeGraph.Nodes[nodeNumber]);
-        public static void DeleteNode(NodeGraph nodeGraph, BaseNode node)
+        internal static void DeleteNode(NodeGraph nodeGraph, int nodeNumber) => DeleteNode(nodeGraph, nodeGraph.Nodes[nodeNumber]);
+        internal static void DeleteNode(NodeGraph nodeGraph, BaseNode node)
         {
             if (!nodeGraph) throw new NullReferenceException();
             if (!node) throw new NullReferenceException();
             nodeGraph.RemoveNode(node);
         }
+
+        internal static void DrawGrid(Rect viewRect, float gridSpacing, float gridOpacity, Color gridColor)
+        {
+            int widthDivs = Mathf.CeilToInt(viewRect.width / gridSpacing);
+            int heightDivs = Mathf.CeilToInt(viewRect.height / gridSpacing);
+
+            Handles.BeginGUI();
+
+            Handles.color = gridColor;
+            for (int x = 0; x < widthDivs; x++)
+                Handles.DrawLine(new Vector3(gridSpacing * x, 0f, 0f), new Vector3(gridSpacing * x, viewRect.height, 0f)); 
+            for (int y = 0; y < widthDivs; y++)
+                Handles.DrawLine(new Vector3(0, gridSpacing * y, 0f), new Vector3(viewRect.width, gridSpacing * y, 0f));
+            Handles.color = Color.white;
+
+            Handles.EndGUI();
+        }
     }
 
-    public enum ConnectionNodeType
+    internal enum ConnectionNodeType
     {
         Input,
         Output
     }
-    public enum ConnectionNodeSide
+    internal enum ConnectionNodeSide
     {
         Up,
         Right,

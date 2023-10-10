@@ -6,11 +6,11 @@ using UnityEditor;
 
 namespace AbilityNodeEditor
 {
-    public class NodePropertyView : BaseView
+    internal class NodePropertyView : BaseView
     {
 
-        public NodePropertyView() : base("Property View") { }
-        public override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
+        internal NodePropertyView() : base("Property View") { }
+        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
         {
             base.UpdateView(editorRect, precentageRect, e, nodeGraph);
 
@@ -18,18 +18,22 @@ namespace AbilityNodeEditor
 
             GUILayout.BeginArea(ViewRect);
             GUILayout.Space(60);
+            //GUILayout.BeginHorizontal();
+            //GUILayout.Space(30);
             
             if (curGraph && curGraph.SelectedNode)
                 curGraph.SelectedNode.DrawNodeProperties();
             else
                 EditorGUILayout.LabelField("SELECT NODE");
              
+            //GUILayout.Space(30);
+            //GUILayout.EndHorizontal();
             GUILayout.EndArea();
 
             ProcessEvents(e);
         }
 
-        public override void ProcessEvents(Event e)
+        internal override void ProcessEvents(Event e)
         {
             base.ProcessEvents(e);
             if (ViewRect.Contains(e.mousePosition))

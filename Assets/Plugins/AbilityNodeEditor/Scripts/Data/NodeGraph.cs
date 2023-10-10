@@ -9,21 +9,21 @@ using UnityEditor;
 namespace AbilityNodeEditor
 {
     [Serializable]
-    public class NodeGraph : ScriptableObject
+    internal class NodeGraph : ScriptableObject
     {
-        [field: SerializeField]public string GraphName { get; set; } = "New Graph";
-        public List<BaseNode> Nodes;
-        public BaseNode SelectedNode {  get; private set; }
+        [field: SerializeField]internal string GraphName { get; set; } = "New Graph";
+        internal List<BaseNode> Nodes;
+        internal BaseNode SelectedNode {  get; private set; }
         
-        public bool WantsConnection = false;
-        public BaseNode ConnectionNode = null;
+        internal bool WantsConnection = false;
+        internal BaseNode ConnectionNode = null;
 
         private void OnEnable()
         {
             if (Nodes == null) Nodes = new();
         }
 
-        public void InitGraph()
+        internal void InitGraph()
         {
             if (Nodes.Count > 0)
             {
@@ -33,12 +33,12 @@ namespace AbilityNodeEditor
                 });
             }
         }
-        public void UpdateGraph()
+        internal void UpdateGraph()
         {
         }
 
 #if UNITY_EDITOR
-        public void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin) 
+        internal void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin) 
         {
             if (Nodes.Count > 0)
             {
@@ -109,7 +109,7 @@ namespace AbilityNodeEditor
             }
         }
 
-        public void RemoveNode(BaseNode node)
+        internal void RemoveNode(BaseNode node)
         {
             if (Nodes.Contains(node))
             {
@@ -119,7 +119,7 @@ namespace AbilityNodeEditor
                 AssetDatabase.Refresh();
             }
         }
-        public void AddNode(BaseNode node)
+        internal void AddNode(BaseNode node)
         {
             if(!Nodes.Contains(node))
             {
@@ -130,7 +130,7 @@ namespace AbilityNodeEditor
                 AssetDatabase.Refresh();
             }
         }
-        public bool IsThereRootNode()
+        internal bool IsThereRootNode()
         {
             BaseNode node = null;
             Nodes.ForEach(el =>

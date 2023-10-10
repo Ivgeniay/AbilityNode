@@ -10,30 +10,30 @@ using UnityEditor;
 namespace AbilityNodeEditor
 {
     [Serializable]
-    public abstract class BaseView 
+    internal abstract class BaseView 
     {
-        public string ViewTitle { get; set; }
-        public Rect ViewRect;
+        internal string ViewTitle { get; set; }
+        internal Rect ViewRect;
 
         private string defaultViewTitle;
         protected GUISkin viewSkin;
         protected NodeGraph curGraph;
 
-        public BaseView(string title)
+        internal BaseView(string title)
         {
             defaultViewTitle = title;
             ViewTitle = title;
             GetEditorSkin();
         }
 
-        public virtual void OnChangeGraphHandler(NodeGraph nodeGraph)
+        internal virtual void OnChangeGraphHandler(NodeGraph nodeGraph)
         {
             curGraph = nodeGraph;
             if (curGraph) ViewTitle = curGraph.GraphName + " " + defaultViewTitle; 
             else ViewTitle = "No Graph";
         }
 
-        public virtual void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
+        internal virtual void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
         {
             if (viewSkin == null) 
             {
@@ -47,7 +47,7 @@ namespace AbilityNodeEditor
                                 editorRect.height * precentageRect.height);
         }
 
-        public virtual void ProcessEvents(Event e) { }
+        internal virtual void ProcessEvents(Event e) { }
         protected void GetEditorSkin() { 
             viewSkin = Resources.Load<GUISkin>("GUISkins/EditorSkins/NodeEditorSkin");
         }

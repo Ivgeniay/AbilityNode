@@ -1,24 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System;
 
 namespace AbilityNodeEditor
 {
-    public class NodeEditorWindow : EditorWindow
+    internal class NodeEditorWindow : EditorWindow
     {
         #region Variables
-        public static NodeEditorWindow curWindow;
-        public NodePropertyView propertyView;
-        public NodeWorkView workView;
+        internal static NodeEditorWindow curWindow;
+        internal NodePropertyView propertyView;
+        internal NodeWorkView workView;
 
-        public float viewPercentage = 0.75f; 
+        internal float viewPercentage = 0.75f; 
         private NodeGraph curGraph { get; set; } = null;
         #endregion
 
         #region Methods
-        public static void InitEditorWindow()
+        internal static void InitEditorWindow()
         {
             curWindow = EditorWindow.GetWindow<NodeEditorWindow>();
             curWindow.titleContent.text = "Ability Node Editor";
@@ -95,14 +92,14 @@ namespace AbilityNodeEditor
             }
         }
 
-        public void SetGraph(NodeGraph curGraph)
+        internal void SetGraph(NodeGraph curGraph)
         {
             this.curGraph = curGraph;
             curWindow.propertyView.OnChangeGraphHandler(curGraph);
             curWindow.workView.OnChangeGraphHandler(curGraph);
         }
 
-        public void UnloadGraph() => this.curGraph = null;
+        internal void UnloadGraph() => this.curGraph = null;
         
         #endregion
     }

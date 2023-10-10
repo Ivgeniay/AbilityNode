@@ -7,19 +7,21 @@ using UnityEngine;
 
 namespace AbilityNodeEditor
 {
-    public class NodeWorkView : BaseView
+    internal class NodeWorkView : BaseView
     {
         private Vector2 mousePos;
-        public NodeWorkView() : base("WorkNode View") { }
+        internal NodeWorkView() : base("WorkNode View") { }
         private NodeGraph nodeGraph;
         private BaseNode nodeUnderMouse = null;
 
-        public override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
+        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
         {
             base.UpdateView(editorRect, precentageRect, e, nodeGraph);
             this.nodeGraph = nodeGraph;
 
             GUI.Box(ViewRect, ViewTitle, viewSkin.GetStyle("ProperyViewBG")); 
+
+            NodeUtils.DrawGrid(ViewRect, 20f, .05f, new Color(0.25f, 0.25f, 0.25f));
 
             GUILayout.BeginArea(ViewRect); 
             curGraph?.UpdateGraphGUI(e, ViewRect, viewSkin);
@@ -28,7 +30,7 @@ namespace AbilityNodeEditor
             ProcessEvents(e);
         }
 
-        public override void ProcessEvents(Event e)
+        internal override void ProcessEvents(Event e)
         {
             base.ProcessEvents(e);
 

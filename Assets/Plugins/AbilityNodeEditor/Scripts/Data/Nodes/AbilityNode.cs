@@ -11,41 +11,41 @@ namespace AbilityNodeEditor
     [Serializable]
     public class AbilityNode : BaseNode
     {
-        public float nodeSum;
+        internal float nodeSum;
 
-        public NodeOutput Output;
-        public NodeInput InputA;
-        public NodeInput InputB;
+        internal NodeOutput Output;
+        internal NodeInput InputA;
+        internal NodeInput InputB;
 
-        public AbilityNode()
+        internal AbilityNode()
         {
             Output = new();
             InputA = new();
             InputB = new();
         }
 
-        public override void InitNode()
+        internal override void InitNode()
         {
             base.InitNode();
             NodeType = NodeType.AbilityNode;
             NodeRect = new Rect(10f, 10f, 150f, 65f);
         }
 
-        public override void DrawNodeProperties()
+        internal override void DrawNodeProperties()
         {
             base.DrawNodeProperties();
             nodeSum = EditorGUILayout.FloatField("Float value: ", nodeSum);
         }
 
-        public override void UpdateNode(Event e, Rect viewRect)
+        internal override void UpdateNode(Event e, Rect viewRect)
         {
             base.UpdateNode(e, viewRect);
         }
 
-        public override NodeOutput GetNodeOutput() => Output;
+        internal override NodeOutput GetNodeOutput() => Output;
 
 #if UNITY_EDITOR
-        public override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)
+        internal override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)
         {
             base.UpdateGraphGUI(e, viewRect, viewSkin);
 

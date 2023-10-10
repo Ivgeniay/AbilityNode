@@ -5,10 +5,10 @@ using UnityEditor;
 
 namespace AbilityNodeEditor
 {
-    public class NodeMenus
+    internal class NodeMenus
     {
         [MenuItem("DES/Launch Ability Editor")]
-        public static void InitNodeEditor()
+        internal static void InitNodeEditor()
         {
             NodeEditorWindow.InitEditorWindow();
         }

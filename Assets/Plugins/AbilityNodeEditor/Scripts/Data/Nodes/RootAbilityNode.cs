@@ -10,10 +10,10 @@ namespace AbilityNodeEditor
     [Serializable]
     public class RootAbilityNode : BaseNode
     {
-        public float floatValue;
-        public NodeOutput Output;
+        internal float floatValue;
+        internal NodeOutput Output;
 
-        public override void InitNode()
+        internal override void InitNode()
         {
             base.InitNode();
             NodeType = NodeType.RootAbilityNode;
@@ -25,16 +25,16 @@ namespace AbilityNodeEditor
             if (isSelected) GUI.Box(NodeRect, NodeName, viewSkin.GetStyle("NodeSelectedRoot"));
             else GUI.Box(NodeRect, NodeName, viewSkin.GetStyle("NodeDefaultRoot"));
         }
-        public override void DrawNodeProperties()
+        internal override void DrawNodeProperties()
         {
             base.DrawNodeProperties();
             floatValue = EditorGUILayout.FloatField("Float value: ", floatValue);
         }
 
-        public override NodeOutput GetNodeOutput() => Output;
+        internal override NodeOutput GetNodeOutput() => Output;
 
 #if UNITY_EDITOR
-        public override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)
+        internal override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)
         {
             base.UpdateGraphGUI(e, viewRect, viewSkin);
 

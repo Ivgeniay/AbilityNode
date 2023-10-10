@@ -10,29 +10,30 @@ namespace AbilityNodeEditor
     [Serializable]
     public abstract class BaseNode : ScriptableObject
     {
-        public string NodeName;
-        public Rect NodeRect;
-        public NodeGraph parentGraph;
-        public NodeType NodeType { get; set; }
+        public BaseAbility Ability { get; set; }
+        internal string NodeName;
+        internal Rect NodeRect;
+        internal NodeGraph parentGraph;
+        internal NodeType NodeType { get; set; }
 
         protected GUISkin modeSkin;
 
         [SerializeField] protected bool isSelected;
 
-        public virtual NodeOutput GetNodeOutput() => null;
-        public virtual NodeInput GetNodeInput() => null;
+        internal virtual NodeOutput GetNodeOutput() => null;
+        internal virtual NodeInput GetNodeInput() => null;
 
-        public virtual void InitNode() 
+        internal virtual void InitNode() 
         { 
             
         }
 
-        public virtual void UpdateNode(Event e, Rect viewRect)
+        internal virtual void UpdateNode(Event e, Rect viewRect)
         {
             ProcessEvent(e, viewRect);
         }
 
-        public virtual void SelectNode(bool isSelect = true)
+        internal virtual void SelectNode(bool isSelect = true)
         {
             isSelected = isSelect;
             //Debug.Log(this.name + $" is selected: {isSelect}");
@@ -41,7 +42,7 @@ namespace AbilityNodeEditor
         protected abstract void DisplaySkin(GUISkin viewSkin);
 
 #if UNITY_EDITOR
-        public virtual void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin) 
+        internal virtual void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin) 
         {
             ProcessEvent(e, viewRect);
             DisplaySkin(viewSkin);
@@ -49,7 +50,7 @@ namespace AbilityNodeEditor
             EditorUtility.SetDirty(this);
         }
 
-        public virtual void DrawNodeProperties()
+        internal virtual void DrawNodeProperties()
         {
 
         }
@@ -66,20 +67,20 @@ namespace AbilityNodeEditor
         }
 
         [Serializable]
-        public class NodeInput
+        internal class NodeInput
         {
-            [field: SerializeField] public bool IsOccupied { get; set; }
-            [field: SerializeField] public BaseNode InputNode { get; set; } 
-            public Vector3 Position { get; set; }
-            public Vector3 PointConnection { get; set; }
+            [field: SerializeField] internal bool IsOccupied { get; set; }
+            [field: SerializeField] internal BaseNode InputNode { get; set; } 
+            internal Vector3 Position { get; set; }
+            internal Vector3 PointConnection { get; set; }
         }
 
         [Serializable]
-        public class NodeOutput
+        internal class NodeOutput
         {
-            [field: SerializeField] public bool IsOccupied;
-            public Vector3 Position { get; set; }
-            public Vector3 PointConnection { get; set; }
+            [field: SerializeField] internal bool IsOccupied;
+            internal Vector3 Position { get; set; }
+            internal Vector3 PointConnection { get; set; }
         }
     }
 }

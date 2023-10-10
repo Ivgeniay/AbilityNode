@@ -13,6 +13,3 @@ MonoBehaviour:
   m_Name: Enter Node Nam123e...
   m_EditorClassIdentifier: 
   <GraphName>k__BackingField: New Graph
-  Nodes: []
-  WantsConnection: 0
-  ConnectionNode: {fileID: 0}
