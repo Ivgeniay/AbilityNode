@@ -1,5 +1,4 @@
-﻿using DG.DemiEditor.DeGUINodeSystem;
-using System;
+﻿using System;
 using System.Threading;
 #if UNITY_EDITOR
 using UnityEditor;
