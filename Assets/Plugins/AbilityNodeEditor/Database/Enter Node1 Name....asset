@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <GraphName>k__BackingField: New Graph
   Nodes: []
-  wantsConnection: 0
-  connectionNode: {fileID: 0}
+  WantsConnection: 0
+  ConnectionNode: {fileID: 0}

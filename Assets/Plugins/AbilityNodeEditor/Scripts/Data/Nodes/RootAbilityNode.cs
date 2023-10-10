@@ -10,6 +10,7 @@ namespace AbilityNodeEditor
     [Serializable]
     public class RootAbilityNode : BaseNode
     {
+        public float floatValue;
         public NodeOutput Output;
 
         public override void InitNode()
@@ -23,6 +24,11 @@ namespace AbilityNodeEditor
         {
             if (isSelected) GUI.Box(NodeRect, NodeName, viewSkin.GetStyle("NodeSelectedRoot"));
             else GUI.Box(NodeRect, NodeName, viewSkin.GetStyle("NodeDefaultRoot"));
+        }
+        public override void DrawNodeProperties()
+        {
+            base.DrawNodeProperties();
+            floatValue = EditorGUILayout.FloatField("Float value: ", floatValue);
         }
 
         public override NodeOutput GetNodeOutput() => Output;

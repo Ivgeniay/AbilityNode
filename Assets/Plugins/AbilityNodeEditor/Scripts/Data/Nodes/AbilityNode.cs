@@ -31,6 +31,12 @@ namespace AbilityNodeEditor
             NodeRect = new Rect(10f, 10f, 150f, 65f);
         }
 
+        public override void DrawNodeProperties()
+        {
+            base.DrawNodeProperties();
+            nodeSum = EditorGUILayout.FloatField("Float value: ", nodeSum);
+        }
+
         public override void UpdateNode(Event e, Rect viewRect)
         {
             base.UpdateNode(e, viewRect);

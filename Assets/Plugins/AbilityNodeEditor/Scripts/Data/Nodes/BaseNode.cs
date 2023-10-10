@@ -48,6 +48,11 @@ namespace AbilityNodeEditor
              
             EditorUtility.SetDirty(this);
         }
+
+        public virtual void DrawNodeProperties()
+        {
+
+        }
 #endif
         private void ProcessEvent(Event e, Rect viewRect) 
         {
