@@ -109,11 +109,13 @@ namespace AbilityNodeEditor
         {
             if (InputA.IsOccupied && InputA.InputNode != null)
             {
-                NodeUtils.DrawLineBetween(InputA, InputA.InputNode.GetNodeOutput());
+                var nodeOutput = InputA.InputNode.GetNodeOutput();
+                if (nodeOutput != null) NodeUtils.DrawLineBetween(InputA, nodeOutput);
             }
             if (InputB.IsOccupied && InputB.InputNode != null)
             {
-                NodeUtils.DrawLineBetween(InputB, InputB.InputNode.GetNodeOutput());
+                var nodeOutput = InputB.InputNode.GetNodeOutput();
+                if (nodeOutput != null) NodeUtils.DrawLineBetween(InputB, nodeOutput);
             }
         }
         

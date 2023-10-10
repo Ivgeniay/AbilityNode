@@ -13,6 +13,61 @@ MonoBehaviour:
   m_Name: 123
   m_EditorClassIdentifier: 
   <GraphName>k__BackingField: 123
-  Nodes: []
-  wantsConnection: 0
-  connectionNode: {fileID: 0}
+  Nodes:
+  - {fileID: 4447381116455064978}
+  - {fileID: 8855468930041285614}
+  WantsConnection: 0
+  ConnectionNode: {fileID: 0}
+--- !u!114 &4447381116455064978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e3943a907d875488e48e9bb00779c2, type: 3}
+  m_Name: Ability root node
+  m_EditorClassIdentifier: 
+  NodeName: Ability root node
+  NodeRect:
+    serializedVersion: 2
+    x: 349
+    y: 227.2
+    width: 200
+    height: 65
+  parentGraph: {fileID: 11400000}
+  isSelected: 1
+  Output:
+    IsOccupied: 0
+--- !u!114 &8855468930041285614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Ability node
+  m_EditorClassIdentifier: 
+  NodeName: Ability node
+  NodeRect:
+    serializedVersion: 2
+    x: 644
+    y: 145.2
+    width: 150
+    height: 65
+  parentGraph: {fileID: 11400000}
+  isSelected: 0
+  nodeSum: 0
+  Output:
+    IsOccupied: 0
+  InputA:
+    <IsOccupied>k__BackingField: 0
+    <InputNode>k__BackingField: {fileID: 0}
+  InputB:
+    <IsOccupied>k__BackingField: 0
+    <InputNode>k__BackingField: {fileID: 0}

@@ -112,12 +112,23 @@ namespace AbilityNodeEditor
         public void RemoveNode(BaseNode node)
         {
             if (Nodes.Contains(node))
+            {
                 Nodes.Remove(node);
+                GameObject.DestroyImmediate(node);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
         }
         public void AddNode(BaseNode node)
         {
             if(!Nodes.Contains(node))
-                Nodes.Add(node); 
+            {
+                Nodes.Add(node);
+                node.name = node.NodeName;
+                AssetDatabase.AddObjectToAsset(node, this);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
         }
         public bool IsThereRootNode()
         {

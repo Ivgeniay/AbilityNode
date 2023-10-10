@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using AbilityNodeEditor;
 using static AbilityNodeEditor.BaseNode;
+using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -80,11 +81,6 @@ namespace AbilityNodeEditor
                     node.parentGraph = nodeGraph;
 
                     nodeGraph.AddNode(node);
-
-                    node.name = node.NodeName; //GUID.Generate().ToString();
-                    AssetDatabase.AddObjectToAsset(node, nodeGraph);
-                    AssetDatabase.SaveAssets();
-                    AssetDatabase.Refresh();
                 }
             }
         }
@@ -133,6 +129,13 @@ namespace AbilityNodeEditor
             
         }
 
+        public static void DeleteNode(NodeGraph nodeGraph, int nodeNumber) => DeleteNode(nodeGraph, nodeGraph.Nodes[nodeNumber]);
+        public static void DeleteNode(NodeGraph nodeGraph, BaseNode node)
+        {
+            if (!nodeGraph) throw new NullReferenceException();
+            if (!node) throw new NullReferenceException();
+            nodeGraph.RemoveNode(node);
+        }
     }
 
     public enum ConnectionNodeType

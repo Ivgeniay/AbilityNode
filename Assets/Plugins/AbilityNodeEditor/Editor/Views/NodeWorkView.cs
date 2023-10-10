@@ -12,6 +12,7 @@ namespace AbilityNodeEditor
         private Vector2 mousePos;
         public NodeWorkView() : base("WorkNode View") { }
         private NodeGraph nodeGraph;
+        private BaseNode nodeUnderMouse = null;
 
         public override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
         {
@@ -44,26 +45,52 @@ namespace AbilityNodeEditor
                     if (e.type == EventType.MouseDown)
                     {
                         mousePos = e.mousePosition;
-                        ProcessContextMenu(e);
+                        bool isOverNode = default;
+                        if (curGraph)
+                        {
+                            if (curGraph.Nodes.Count > 0)
+                            {
+                                foreach (var item in curGraph.Nodes)
+                                {
+                                    if (item.NodeRect.Contains(mousePos))
+                                    {
+                                        nodeUnderMouse = item;
+                                        isOverNode = true;
+                                    }
+                                }
+                            }
+                        }
+                        ProcessContextMenu(e, isOverNode);
                     }
                 }
             }
         }
 
-        private void ProcessContextMenu(Event e)
+        private void ProcessContextMenu(Event e, object context)
         {
             GenericMenu menu = new();
-            menu.AddItem(new GUIContent("Create Grath"), false, ContextCallback, "0");
-            menu.AddItem(new GUIContent("Load Grath"), false, ContextCallback, "1");
-
-            if (curGraph != null)
+            if (context is bool boolContext)
             {
-                menu.AddSeparator("");
-                var isThereRoot = nodeGraph.IsThereRootNode();
-                if(!isThereRoot) menu.AddItem(new GUIContent("Create Root Ability"), false, ContextCallback, "2");
-                if(isThereRoot) menu.AddItem(new GUIContent("Create New Ability"), false, ContextCallback, "3");
-                menu.AddSeparator("");
-                menu.AddItem(new GUIContent("Unload Grath"), false, ContextCallback, "10");
+                if (boolContext)
+                {
+                    if (curGraph != null)
+                        menu.AddItem(new GUIContent("Delete node"), false, ContextCallback, "4"); 
+                }
+                else
+                { 
+                    menu.AddItem(new GUIContent("Create Grath"), false, ContextCallback, "0");
+                    menu.AddItem(new GUIContent("Load Grath"), false, ContextCallback, "1");
+
+                    if (curGraph != null)
+                    {
+                        menu.AddSeparator("");
+                        var isThereRoot = nodeGraph.IsThereRootNode();
+                        if(!isThereRoot) menu.AddItem(new GUIContent("Create Root Ability"), false, ContextCallback, "2");
+                        if(isThereRoot) menu.AddItem(new GUIContent("Create New Ability"), false, ContextCallback, "3");
+                        menu.AddSeparator("");
+                        menu.AddItem(new GUIContent("Unload Grath"), false, ContextCallback, "10");
+                    }
+                }
             }
 
             menu.ShowAsContext();
@@ -89,6 +116,10 @@ namespace AbilityNodeEditor
 
                 case "3":
                     NodeUtils.CreateNode(curGraph, NodeType.AbilityNode, mousePos);
+                    break;
+
+                case "4":
+                    NodeUtils.DeleteNode(curGraph, nodeUnderMouse);
                     break;
 
                 case "10":
