@@ -10,7 +10,7 @@ using UnityEditor;
 internal class NodePopupWindow : EditorWindow
 {
     private static NodePopupWindow curPopup;
-    private string name = "Enter Node Name...";
+    private string graphName = "New Graph";
     
     internal static void IniNodePopup()
     {
@@ -27,20 +27,20 @@ internal class NodePopupWindow : EditorWindow
         GUILayout.BeginVertical();
 
         EditorGUILayout.LabelField("Create New Graph:", EditorStyles.boldLabel);
-        name = EditorGUILayout.TextField("Enter Graph Name", name);
+        graphName = EditorGUILayout.TextField("Enter Graph Name", graphName);
 
         GUILayout.Space(20);
 
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Create Graph", GUILayout.Height(40)))
         {
-            if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name) || name == "Enter Node Name..." )
+            if (string.IsNullOrEmpty(graphName) || string.IsNullOrWhiteSpace(graphName) || graphName == "New Graph")
             {
                 EditorUtility.DisplayDialog("Node Message:", "Enter valid graph name", "OK");
             }
             else
             {
-                NodeUtils.CreateNewGraph(name);
+                NodeUtils.CreateNewGraph(graphName);
                 curPopup.Close();
             }
         }

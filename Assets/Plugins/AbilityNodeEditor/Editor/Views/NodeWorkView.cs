@@ -11,10 +11,10 @@ namespace AbilityNodeEditor
     {
         private Vector2 mousePos;
         internal NodeWorkView() : base("WorkNode View") { }
-        private NodeGraph nodeGraph;
+        private NodeAbilityGraph nodeGraph;
         private BaseNode nodeUnderMouse = null;
 
-        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
+        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeAbilityGraph nodeGraph)
         {
             base.UpdateView(editorRect, precentageRect, e, nodeGraph);
             this.nodeGraph = nodeGraph;

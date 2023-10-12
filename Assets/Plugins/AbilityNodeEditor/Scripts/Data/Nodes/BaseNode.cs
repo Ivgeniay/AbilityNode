@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -8,20 +10,22 @@ using UnityEditor;
 namespace AbilityNodeEditor
 {
     [Serializable]
-    public abstract class BaseNode : ScriptableObject
+    public abstract partial class BaseNode : ScriptableObject
     {
         public BaseAbility Ability { get; set; }
         internal string NodeName;
         internal Rect NodeRect;
-        internal NodeGraph parentGraph;
+        internal NodeAbilityGraph parentGraph;
         internal NodeType NodeType { get; set; }
 
         protected GUISkin modeSkin;
 
+        [SerializeField] public bool IsEnable;
         [SerializeField] protected bool isSelected;
 
+        public void SetEnable(bool isEnable) => IsEnable = isEnable;
         internal virtual NodeOutput GetNodeOutput() => null;
-        internal virtual NodeInput GetNodeInput() => null;
+        internal virtual List<NodeInput> GetNodeInput() => null;
 
         internal virtual void InitNode() 
         { 
@@ -36,7 +40,6 @@ namespace AbilityNodeEditor
         internal virtual void SelectNode(bool isSelect = true)
         {
             isSelected = isSelect;
-            //Debug.Log(this.name + $" is selected: {isSelect}");
         }
 
         protected abstract void DisplaySkin(GUISkin viewSkin);
@@ -52,7 +55,18 @@ namespace AbilityNodeEditor
 
         internal virtual void DrawNodeProperties()
         {
+            NodeUtils.DrawTextProperty("AbilityName: ", ref NodeName);
+            NodeUtils.DrawBoolProperty("IsEnable", ref IsEnable, () =>
+            {
+                if (this is RootAbilityNode root) return true;
+                var outputNode = GetNodeInput();
+                if (outputNode == null || outputNode.Count == 0) return false;
 
+                if (outputNode.Any(input => input != null && input.InputNode != null && input.InputNode.IsEnable)) return true;
+
+                return false;
+            });
+            Ability = EditorGUILayout.ObjectField("Ability: ", Ability, typeof(BaseAbility)) as BaseAbility;
         }
 #endif
         private void ProcessEvent(Event e, Rect viewRect) 
@@ -64,23 +78,6 @@ namespace AbilityNodeEditor
                 NodeRect.y += e.delta.y;
             }
 
-        }
-
-        [Serializable]
-        internal class NodeInput
-        {
-            [field: SerializeField] internal bool IsOccupied { get; set; }
-            [field: SerializeField] internal BaseNode InputNode { get; set; } 
-            internal Vector3 Position { get; set; }
-            internal Vector3 PointConnection { get; set; }
-        }
-
-        [Serializable]
-        internal class NodeOutput
-        {
-            [field: SerializeField] internal bool IsOccupied;
-            internal Vector3 Position { get; set; }
-            internal Vector3 PointConnection { get; set; }
         }
     }
 }

@@ -1,6 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6467960802803015627
+--- !u!114 &-8348593386802431893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Ability node
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  isSelected: 0
+--- !u!114 &-6276517609301181403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Ability node
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  isSelected: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14e16152c09e0c4abd4346f933dc3c3, type: 3}
+  m_Name: NewGraph
+  m_EditorClassIdentifier: 
+  <GraphName>k__BackingField: NewGraph
+--- !u!114 &754993270254490317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,43 +53,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e3943a907d875488e48e9bb00779c2, type: 3}
   m_Name: Ability root node
   m_EditorClassIdentifier: 
+  IsEnable: 1
   isSelected: 0
---- !u!114 &-5551663157101580141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: Ability node
-  m_EditorClassIdentifier: 
-  isSelected: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c3652a66185b224aac6634929e222c7, type: 3}
-  m_Name: NewGraph
-  m_EditorClassIdentifier: 
-  <GraphName>k__BackingField: NewGraph
---- !u!114 &8245087502953903242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: Ability node
-  m_EditorClassIdentifier: 
-  isSelected: 1

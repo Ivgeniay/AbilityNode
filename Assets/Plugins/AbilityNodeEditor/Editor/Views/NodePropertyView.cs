@@ -10,7 +10,7 @@ namespace AbilityNodeEditor
     {
 
         internal NodePropertyView() : base("Property View") { }
-        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeGraph nodeGraph)
+        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeAbilityGraph nodeGraph)
         {
             base.UpdateView(editorRect, precentageRect, e, nodeGraph);
 
@@ -20,10 +20,12 @@ namespace AbilityNodeEditor
             GUILayout.Space(60);
             GUILayout.BeginHorizontal();
             GUILayout.Space(30);
-            
+            GUILayout.BeginVertical();
+
             if (curGraph != null && curGraph.SelectedNode != null) curGraph?.SelectedNode?.DrawNodeProperties();
             else EditorGUILayout.LabelField("SELECT NODE");
              
+            GUILayout.EndVertical();
             GUILayout.Space(30);
             GUILayout.EndHorizontal();
             GUILayout.EndArea();

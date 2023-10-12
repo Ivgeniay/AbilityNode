@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using static AbilityNodeEditor.BaseNode;
+using System.Collections.Generic;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -11,8 +12,6 @@ namespace AbilityNodeEditor
     [Serializable]
     public class AbilityNode : BaseNode
     {
-        internal float nodeSum;
-
         internal NodeOutput Output;
         internal NodeInput InputA;
         internal NodeInput InputB;
@@ -34,7 +33,6 @@ namespace AbilityNodeEditor
         internal override void DrawNodeProperties()
         {
             base.DrawNodeProperties();
-            nodeSum = EditorGUILayout.FloatField("Float value: ", nodeSum);
         }
 
         internal override void UpdateNode(Event e, Rect viewRect)
@@ -43,6 +41,10 @@ namespace AbilityNodeEditor
         }
 
         internal override NodeOutput GetNodeOutput() => Output;
+        internal override List<NodeInput> GetNodeInput()
+        {
+            return new List<NodeInput>() { InputA, InputB };
+        }
 
 #if UNITY_EDITOR
         internal override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)

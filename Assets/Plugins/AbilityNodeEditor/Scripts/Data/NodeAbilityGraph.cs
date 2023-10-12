@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System.Linq;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -9,7 +11,7 @@ using UnityEditor;
 namespace AbilityNodeEditor
 {
     [Serializable]
-    internal class NodeGraph : ScriptableObject
+    public class NodeAbilityGraph : ScriptableObject
     {
         [field: SerializeField]internal string GraphName { get; set; } = "New Graph";
         internal List<BaseNode> Nodes;
@@ -17,6 +19,15 @@ namespace AbilityNodeEditor
         
         internal bool WantsConnection = false;
         internal BaseNode ConnectionNode = null;
+
+        public IEnumerable<BaseNode> GetNodes()
+        {
+            foreach (var node in Nodes)
+                yield return node;
+        }
+        public RootAbilityNode GetRootAbility() =>
+            Nodes.OfType<RootAbilityNode>().FirstOrDefault();
+        
 
         private void OnEnable()
         {

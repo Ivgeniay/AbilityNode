@@ -13,9 +13,9 @@ namespace AbilityNodeEditor
 {
     internal static class NodeUtils
     {
-        internal static NodeGraph CreateNewGraph(string name)
+        internal static NodeAbilityGraph CreateNewGraph(string name)
         {
-            NodeGraph curGraph = ScriptableObject.CreateInstance<NodeGraph>();
+            NodeAbilityGraph curGraph = ScriptableObject.CreateInstance<NodeAbilityGraph>();
             if (curGraph)
             {
                 curGraph.GraphName = name;
@@ -38,13 +38,13 @@ namespace AbilityNodeEditor
         }
         internal static void LoadGraph()
         {
-            NodeGraph curGraph = null;
+            NodeAbilityGraph curGraph = null;
             string grathPath = EditorUtility.OpenFilePanel("Load Graph", Application.dataPath + "/Plugins/AbilityNodeEditor/Database", "asset");
             int appPathLen = Application.dataPath.Length;
             int assetPathLen = "Asset/".Length;
             string finalPath = grathPath.Substring(appPathLen - assetPathLen);
 
-            curGraph = AssetDatabase.LoadAssetAtPath<NodeGraph>(finalPath);
+            curGraph = AssetDatabase.LoadAssetAtPath<NodeAbilityGraph>(finalPath);
             if (curGraph != null)
             {
                 NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>();
@@ -56,7 +56,7 @@ namespace AbilityNodeEditor
             }
         }
 
-        internal static void CreateNode(NodeGraph nodeGraph, NodeType nodeType, Vector2 mousePos)
+        internal static void CreateNode(NodeAbilityGraph nodeGraph, NodeType nodeType, Vector2 mousePos)
         {
             if (nodeGraph != null)
             {
@@ -129,8 +129,8 @@ namespace AbilityNodeEditor
             
         }
 
-        internal static void DeleteNode(NodeGraph nodeGraph, int nodeNumber) => DeleteNode(nodeGraph, nodeGraph.Nodes[nodeNumber]);
-        internal static void DeleteNode(NodeGraph nodeGraph, BaseNode node)
+        internal static void DeleteNode(NodeAbilityGraph nodeGraph, int nodeNumber) => DeleteNode(nodeGraph, nodeGraph.Nodes[nodeNumber]);
+        internal static void DeleteNode(NodeAbilityGraph nodeGraph, BaseNode node)
         {
             if (!nodeGraph) throw new NullReferenceException();
             if (!node) throw new NullReferenceException();
@@ -153,6 +153,37 @@ namespace AbilityNodeEditor
 
             Handles.EndGUI();
         }
+         
+        internal static void DrawFloatProperty(string textLabel, ref float @float)
+        {
+            EditorGUILayout.BeginVertical();
+            @float = EditorGUILayout.FloatField(textLabel, @float);
+            GUILayout.Space(2);
+            EditorGUILayout.EndVertical();
+        }
+
+        internal static void DrawBoolProperty(string textLabel, ref bool @bool, Func<bool> predicate = null)
+        {
+
+            EditorGUILayout.BeginVertical();
+            var result = EditorGUILayout.Toggle(textLabel, @bool);
+
+            if (predicate == null || predicate.Invoke()) @bool = result;
+            else @bool = false;
+            
+            GUILayout.Space(2);
+            EditorGUILayout.EndVertical();
+        }
+
+        internal static void DrawTextProperty(string textLabel, ref string text)
+        {
+            EditorGUILayout.BeginVertical();
+            text = EditorGUILayout.TextField(textLabel, text);
+            GUILayout.Space(2);
+            EditorGUILayout.EndVertical(); 
+        }
+
+
     }
 
     internal enum ConnectionNodeType

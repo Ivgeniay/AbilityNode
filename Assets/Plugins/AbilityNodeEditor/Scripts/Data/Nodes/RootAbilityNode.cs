@@ -10,7 +10,6 @@ namespace AbilityNodeEditor
     [Serializable]
     public class RootAbilityNode : BaseNode
     {
-        internal float floatValue;
         internal NodeOutput Output;
 
         internal override void InitNode()
@@ -28,7 +27,6 @@ namespace AbilityNodeEditor
         internal override void DrawNodeProperties()
         {
             base.DrawNodeProperties();
-            floatValue = EditorGUILayout.FloatField("Float value: ", floatValue);
         }
 
         internal override NodeOutput GetNodeOutput() => Output;
@@ -37,6 +35,7 @@ namespace AbilityNodeEditor
         internal override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)
         {
             base.UpdateGraphGUI(e, viewRect, viewSkin);
+            if (viewSkin == null) return;
 
             Output.Position = new Vector3(NodeRect.x + NodeRect.width, NodeRect.y + NodeRect.height / 2 - 12f, 0);
             Output.PointConnection = NodeUtils.GetNodeConnectionPosition(Output.Position, ConnectionNodeSide.Right);
