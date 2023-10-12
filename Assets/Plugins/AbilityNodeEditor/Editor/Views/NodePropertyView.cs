@@ -10,7 +10,7 @@ namespace AbilityNodeEditor
     {
 
         internal NodePropertyView() : base("Property View") { }
-        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeAbilityGraph nodeGraph)
+        internal override void UpdateView(Rect editorRect, Rect precentageRect, Event e, AbilityNodeGraph nodeGraph)
         {
             base.UpdateView(editorRect, precentageRect, e, nodeGraph);
 

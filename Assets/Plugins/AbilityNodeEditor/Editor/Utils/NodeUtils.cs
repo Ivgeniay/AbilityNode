@@ -13,9 +13,9 @@ namespace AbilityNodeEditor
 {
     internal static class NodeUtils
     {
-        internal static NodeAbilityGraph CreateNewGraph(string name)
+        internal static AbilityNodeGraph CreateNewGraph(string name)
         {
-            NodeAbilityGraph curGraph = ScriptableObject.CreateInstance<NodeAbilityGraph>();
+            AbilityNodeGraph curGraph = ScriptableObject.CreateInstance<AbilityNodeGraph>();
             if (curGraph)
             {
                 curGraph.GraphName = name;
@@ -38,13 +38,14 @@ namespace AbilityNodeEditor
         }
         internal static void LoadGraph()
         {
-            NodeAbilityGraph curGraph = null;
+            AbilityNodeGraph curGraph = null;
             string grathPath = EditorUtility.OpenFilePanel("Load Graph", Application.dataPath + "/Plugins/AbilityNodeEditor/Database", "asset");
+            if (string.IsNullOrEmpty(grathPath) || string.IsNullOrWhiteSpace(grathPath)) return;
             int appPathLen = Application.dataPath.Length;
             int assetPathLen = "Asset/".Length;
             string finalPath = grathPath.Substring(appPathLen - assetPathLen);
 
-            curGraph = AssetDatabase.LoadAssetAtPath<NodeAbilityGraph>(finalPath);
+            curGraph = AssetDatabase.LoadAssetAtPath<AbilityNodeGraph>(finalPath);
             if (curGraph != null)
             {
                 NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>();
@@ -56,7 +57,7 @@ namespace AbilityNodeEditor
             }
         }
 
-        internal static void CreateNode(NodeAbilityGraph nodeGraph, NodeType nodeType, Vector2 mousePos)
+        internal static void CreateNode(AbilityNodeGraph nodeGraph, NodeType nodeType, Vector2 mousePos)
         {
             if (nodeGraph != null)
             {
@@ -92,27 +93,27 @@ namespace AbilityNodeEditor
             curWindow?.UnloadGraph();
         }
 
-        internal static void DrawLine(Vector3 pointA, Vector3 pointB)
+        internal static void DrawLine(Vector3 pointA, Vector3 pointB) =>        
+            DrawLine(pointA, pointB, Color.white);
+        
+        internal static void DrawLine(Vector3 pointA, Vector3 pointB, Color color)
         {
             Handles.BeginGUI();
-            Handles.color = Color.white;
+            Handles.color = color;
             Handles.DrawLine(pointA, pointB);
             Handles.EndGUI();
         }
 
-        internal static void DrawLineBetween(NodeInput nodeInput, NodeOutput nodeOutput)
-        {
+        internal static void DrawLineBetween(NodeInput nodeInput, NodeOutput nodeOutput) =>
             DrawLine(nodeInput.PointConnection, nodeOutput.PointConnection);
-            //new Vector3(nodeOutput.Position.x + 24, nodeOutput.Position.y + 12, 0), 
-            //new Vector3(nodeInput.Position.x, nodeInput.Position.y + 12, 0));
-        }
+        internal static void DrawLineBetween(NodeInput nodeInput, NodeOutput nodeOutput, Color color) =>
+            DrawLine(nodeInput.PointConnection, nodeOutput.PointConnection, color);
+        
 
         internal static void DrawLineToInput(BaseNode from, NodeInput nodeInput)
         {
-            //DrawLine(nodeInput.PointConnection, new Vector3(from.NodeRect.x - 24f, from.NodeRect.y + from.NodeRect.height / 3 - 12f));
-
-            NodeUtils.DrawLine(new Vector3(nodeInput.InputNode.NodeRect.x + nodeInput.InputNode.NodeRect.width + 24f,
-                                    nodeInput.InputNode.NodeRect.y + nodeInput.InputNode.NodeRect.height / 2f - 12f,
+            NodeUtils.DrawLine(new Vector3(nodeInput.ConnectedNode.NodeRect.x + nodeInput.ConnectedNode.NodeRect.width + 24f,
+                                    nodeInput.ConnectedNode.NodeRect.y + nodeInput.ConnectedNode.NodeRect.height / 2f - 12f,
                                     0f),
                                 new Vector3(from.NodeRect.x - 24f, from.NodeRect.y + from.NodeRect.height / 3 - 12f));
         }
@@ -129,8 +130,8 @@ namespace AbilityNodeEditor
             
         }
 
-        internal static void DeleteNode(NodeAbilityGraph nodeGraph, int nodeNumber) => DeleteNode(nodeGraph, nodeGraph.Nodes[nodeNumber]);
-        internal static void DeleteNode(NodeAbilityGraph nodeGraph, BaseNode node)
+        internal static void DeleteNode(AbilityNodeGraph nodeGraph, int nodeNumber) => DeleteNode(nodeGraph, nodeGraph.Nodes[nodeNumber]);
+        internal static void DeleteNode(AbilityNodeGraph nodeGraph, BaseNode node)
         {
             if (!nodeGraph) throw new NullReferenceException();
             if (!node) throw new NullReferenceException();
@@ -154,15 +155,16 @@ namespace AbilityNodeEditor
             Handles.EndGUI();
         }
          
-        internal static void DrawFloatProperty(string textLabel, ref float @float)
+        internal static float DrawFloatProperty(string textLabel, ref float @float)
         {
             EditorGUILayout.BeginVertical();
             @float = EditorGUILayout.FloatField(textLabel, @float);
             GUILayout.Space(2);
             EditorGUILayout.EndVertical();
+            return @float;
         }
 
-        internal static void DrawBoolProperty(string textLabel, ref bool @bool, Func<bool> predicate = null)
+        internal static bool DrawBoolProperty(string textLabel, ref bool @bool, Func<bool> predicate = null)
         {
 
             EditorGUILayout.BeginVertical();
@@ -173,14 +175,16 @@ namespace AbilityNodeEditor
             
             GUILayout.Space(2);
             EditorGUILayout.EndVertical();
+            return result;
         }
 
-        internal static void DrawTextProperty(string textLabel, ref string text)
+        internal static string DrawTextProperty(string textLabel, ref string @string)
         {
             EditorGUILayout.BeginVertical();
-            text = EditorGUILayout.TextField(textLabel, text);
+            @string = EditorGUILayout.TextField(textLabel, @string);
             GUILayout.Space(2);
             EditorGUILayout.EndVertical(); 
+            return @string;
         }
 
 

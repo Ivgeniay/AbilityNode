@@ -11,7 +11,7 @@ namespace AbilityNodeEditor
         internal NodeWorkView workView;
 
         internal float viewPercentage = 0.75f; 
-        private NodeAbilityGraph curGraph { get; set; } = null;
+        private AbilityNodeGraph curGraph { get; set; } = null;
         #endregion
 
         #region Methods
@@ -92,7 +92,7 @@ namespace AbilityNodeEditor
             }
         }
 
-        internal void SetGraph(NodeAbilityGraph curGraph)
+        internal void SetGraph(AbilityNodeGraph curGraph)
         {
             this.curGraph = curGraph;
             curWindow.propertyView.OnChangeGraphHandler(curGraph);

@@ -11,7 +11,7 @@ using UnityEditor;
 namespace AbilityNodeEditor
 {
     [Serializable]
-    public class NodeAbilityGraph : ScriptableObject
+    public class AbilityNodeGraph : ScriptableObject
     {
         [field: SerializeField]internal string GraphName { get; set; } = "New Graph";
         internal List<BaseNode> Nodes;
@@ -19,14 +19,6 @@ namespace AbilityNodeEditor
         
         internal bool WantsConnection = false;
         internal BaseNode ConnectionNode = null;
-
-        public IEnumerable<BaseNode> GetNodes()
-        {
-            foreach (var node in Nodes)
-                yield return node;
-        }
-        public RootAbilityNode GetRootAbility() =>
-            Nodes.OfType<RootAbilityNode>().FirstOrDefault();
         
 
         private void OnEnable()
@@ -117,6 +109,15 @@ namespace AbilityNodeEditor
                         }
                     }
                 }
+
+                if (e.type == EventType.MouseDrag && e.button == 2)
+                {
+                    Nodes.ForEach(el =>
+                    {
+                        el.NodeRect.x += e.delta.x;
+                        el.NodeRect.y += e.delta.y;
+                    });
+                }
             }
         }
 
@@ -125,7 +126,7 @@ namespace AbilityNodeEditor
             if (Nodes.Contains(node))
             {
                 Nodes.Remove(node);
-                GameObject.DestroyImmediate(node);
+                GameObject.DestroyImmediate(node, true);
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Windows;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,7 +11,9 @@ namespace AbilityNodeEditor
     [Serializable]
     public class RootAbilityNode : BaseNode
     {
-        internal NodeOutput Output;
+        public RootAbilityNode() {
+            Output = new(this);
+        }
 
         internal override void InitNode()
         {
@@ -27,6 +30,12 @@ namespace AbilityNodeEditor
         internal override void DrawNodeProperties()
         {
             base.DrawNodeProperties();
+
+            if (IsUsed) IsEnable = true;
+            else IsEnable = false;
+
+            Ability?.SetEnable(IsEnable);
+            NodeUtils.DrawBoolProperty("IsEnable", ref IsEnable);
         }
 
         internal override NodeOutput GetNodeOutput() => Output;
@@ -36,6 +45,7 @@ namespace AbilityNodeEditor
         {
             base.UpdateGraphGUI(e, viewRect, viewSkin);
             if (viewSkin == null) return;
+            if (Output == null) return;
 
             Output.Position = new Vector3(NodeRect.x + NodeRect.width, NodeRect.y + NodeRect.height / 2 - 12f, 0);
             Output.PointConnection = NodeUtils.GetNodeConnectionPosition(Output.Position, ConnectionNodeSide.Right);

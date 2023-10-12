@@ -12,16 +12,18 @@ namespace AbilityNodeEditor
     [Serializable]
     public abstract partial class BaseNode : ScriptableObject
     {
-        public BaseAbility Ability { get; set; }
-        internal string NodeName;
-        internal Rect NodeRect;
-        internal NodeAbilityGraph parentGraph;
+        [field: SerializeField] public BaseAbility Ability { get; internal set; }
+        [SerializeField] internal string NodeName;
+        [SerializeField] internal Rect NodeRect;
+        internal AbilityNodeGraph parentGraph;
         internal NodeType NodeType { get; set; }
 
         protected GUISkin modeSkin;
 
         [SerializeField] public bool IsEnable;
+        [SerializeField] public bool IsUsed;
         [SerializeField] protected bool isSelected;
+        [SerializeField] internal NodeOutput Output;
 
         public void SetEnable(bool isEnable) => IsEnable = isEnable;
         internal virtual NodeOutput GetNodeOutput() => null;
@@ -55,29 +57,25 @@ namespace AbilityNodeEditor
 
         internal virtual void DrawNodeProperties()
         {
-            NodeUtils.DrawTextProperty("AbilityName: ", ref NodeName);
-            NodeUtils.DrawBoolProperty("IsEnable", ref IsEnable, () =>
-            {
-                if (this is RootAbilityNode root) return true;
-                var outputNode = GetNodeInput();
-                if (outputNode == null || outputNode.Count == 0) return false;
-
-                if (outputNode.Any(input => input != null && input.InputNode != null && input.InputNode.IsEnable)) return true;
-
-                return false;
-            });
+            var abilityName = NodeUtils.DrawTextProperty("AbilityName: ", ref NodeName);
+            var isUsed = NodeUtils.DrawBoolProperty("IsUsed", ref IsUsed);
             Ability = EditorGUILayout.ObjectField("Ability: ", Ability, typeof(BaseAbility)) as BaseAbility;
+
+            if (Ability != null)
+            {
+                Ability?.SetName(abilityName);
+                Ability?.SetUsed(isUsed);
+            }
         }
 #endif
         private void ProcessEvent(Event e, Rect viewRect) 
         {
             if (!isSelected) return;
-            if (e.type == EventType.MouseDrag)
+            if (e.type == EventType.MouseDrag && e.button == 0 && viewRect.Contains(e.mousePosition))
             { 
                 NodeRect.x += e.delta.x;
                 NodeRect.y += e.delta.y;
             }
-
         }
     }
 }

@@ -17,7 +17,7 @@ namespace AbilityNodeEditor
 
         private string defaultViewTitle;
         protected GUISkin viewSkin;
-        protected NodeAbilityGraph curGraph;
+        protected AbilityNodeGraph curGraph;
 
         internal BaseView(string title)
         {
@@ -26,14 +26,14 @@ namespace AbilityNodeEditor
             GetEditorSkin();
         }
 
-        internal virtual void OnChangeGraphHandler(NodeAbilityGraph nodeGraph)
+        internal virtual void OnChangeGraphHandler(AbilityNodeGraph nodeGraph)
         {
             curGraph = nodeGraph;
             if (curGraph) ViewTitle = curGraph.GraphName + " " + defaultViewTitle; 
             else ViewTitle = "No Graph";
         }
 
-        internal virtual void UpdateView(Rect editorRect, Rect precentageRect, Event e, NodeAbilityGraph nodeGraph)
+        internal virtual void UpdateView(Rect editorRect, Rect precentageRect, Event e, AbilityNodeGraph nodeGraph)
         {
             if (viewSkin == null) 
             {

@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4747057980662304249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Ability node
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Ability node
+  NodeRect:
+    serializedVersion: 2
+    x: 564
+    y: 299.2
+    width: 150
+    height: 65
+  IsEnable: 1
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputA:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputB:
+    <IsOccupied>k__BackingField: 1
+    <ConnectedNode>k__BackingField: {fileID: 7640660633181337710}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f82e54de246a28c42887d97d433a21ab, type: 3}
+  m_Name: TestGraph
+  m_EditorClassIdentifier: 
+  <GraphName>k__BackingField: TestGraph
+--- !u!114 &7640660633181337710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e3943a907d875488e48e9bb00779c2, type: 3}
+  m_Name: Ability root node
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Ability root node
+  NodeRect:
+    serializedVersion: 2
+    x: 223
+    y: 249.20001
+    width: 200
+    height: 65
+  IsEnable: 1
+  IsUsed: 1
+  isSelected: 0
+  Output:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: -4747057980662304249}
+--- !u!114 &8172915330157681242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Ability node
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Ability node
+  NodeRect:
+    serializedVersion: 2
+    x: 792
+    y: 263.2
+    width: 150
+    height: 65
+  IsEnable: 0
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputA:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputB:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &8275162091877882265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Ability node
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Ability node
+  NodeRect:
+    serializedVersion: 2
+    x: 567
+    y: 175.2
+    width: 150
+    height: 65
+  IsEnable: 1
+  IsUsed: 0
+  isSelected: 1
+  Output:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputA:
+    <IsOccupied>k__BackingField: 1
+    <ConnectedNode>k__BackingField: {fileID: 7640660633181337710}
+  InputB:
+    <IsOccupied>k__BackingField: 0
+    <ConnectedNode>k__BackingField: {fileID: 0}

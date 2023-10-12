@@ -12,15 +12,14 @@ namespace AbilityNodeEditor
     [Serializable]
     public class AbilityNode : BaseNode
     {
-        internal NodeOutput Output;
-        internal NodeInput InputA;
-        internal NodeInput InputB;
+        [SerializeField] internal NodeInput InputA;
+        [SerializeField] internal NodeInput InputB;
 
         internal AbilityNode()
         {
-            Output = new();
-            InputA = new();
-            InputB = new();
+            Output = new(this);
+            InputA = new(this);
+            InputB = new(this);
         }
 
         internal override void InitNode()
@@ -32,7 +31,17 @@ namespace AbilityNodeEditor
 
         internal override void DrawNodeProperties()
         {
-            base.DrawNodeProperties();
+            base.DrawNodeProperties(); 
+
+            if ((InputA != null && InputA.ConnectedNode != null && InputA.ConnectedNode.IsUsed) || 
+                (InputB != null && InputB.ConnectedNode != null && InputB.ConnectedNode.IsUsed))
+                IsEnable = true;
+            else
+                IsEnable = false;
+                
+            Ability?.SetEnable(IsEnable);
+            NodeUtils.DrawBoolProperty("IsEnable", ref IsEnable);
+            
         }
 
         internal override void UpdateNode(Event e, Rect viewRect)
@@ -63,6 +72,14 @@ namespace AbilityNodeEditor
                 {
                     parentGraph.WantsConnection = true;
                     parentGraph.ConnectionNode = this;
+
+                    //if (Output.ConnectedNode != null) {
+                    //    var inputs = Output.ConnectedNode.GetNodeInput();
+                    //    foreach (var input in inputs)
+                    //        if (input.ConnectedNode == this)
+                    //            input.ConnectedNode = null;
+                    //}
+                    //Output.ConnectedNode = null;
                 }
             }
 
@@ -103,8 +120,9 @@ namespace AbilityNodeEditor
 
         private void OccupiedNode(NodeInput nodeInput)
         {
-            nodeInput.InputNode = parentGraph.ConnectionNode;
-            nodeInput.IsOccupied = nodeInput.InputNode != null ? true : false;
+            nodeInput.ConnectedNode = parentGraph.ConnectionNode;
+            //parentGraph.ConnectionNode.Output.ConnectedNode = nodeInput.ParentNode;
+            nodeInput.IsOccupied = nodeInput.ConnectedNode != null ? true : false;
         }
 
         protected override void DisplaySkin(GUISkin viewSkin)
@@ -115,18 +133,26 @@ namespace AbilityNodeEditor
 
         private void DrawInputLines()
         {
-            if (InputA.IsOccupied && InputA.InputNode != null)
+            DrawFromInput(InputA);
+            DrawFromInput(InputB);
+        }
+
+        private void DrawFromInput(NodeInput nodeInput)
+        {
+            if (nodeInput != null && nodeInput.IsOccupied && nodeInput.ConnectedNode != null)
             {
-                var nodeOutput = InputA.InputNode.GetNodeOutput();
-                if (nodeOutput != null) NodeUtils.DrawLineBetween(InputA, nodeOutput);
-            }
-            if (InputB.IsOccupied && InputB.InputNode != null)
-            {
-                var nodeOutput = InputB.InputNode.GetNodeOutput();
-                if (nodeOutput != null) NodeUtils.DrawLineBetween(InputB, nodeOutput);
+                var nodeOutput = nodeInput.ConnectedNode.GetNodeOutput();
+                if (nodeOutput != null)
+                {
+                    if (nodeInput.ParentNode.IsUsed && nodeInput.ConnectedNode.IsUsed)
+                        NodeUtils.DrawLineBetween(nodeInput, nodeOutput, Color.yellow);
+                    else if (nodeInput.ParentNode.IsEnable && nodeInput.ConnectedNode.IsEnable && nodeInput.ConnectedNode.IsUsed)
+                        NodeUtils.DrawLineBetween(nodeInput, nodeOutput, Color.white);
+                    else
+                        NodeUtils.DrawLineBetween(nodeInput, nodeOutput, Color.gray);
+                }
             }
         }
-        
 #endif
 
     }
