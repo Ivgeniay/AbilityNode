@@ -36,10 +36,10 @@ Node representation of the character ability tree in an RPG game.
    ![FirstStep](./Pics/6.png)
 
 5. Nodes have 3 types of communication:
-   1. Open communication (Enable).
-   2. Closed communication.
-   3. Used
-      ![FirstStep](./Pics/7.png)
+   - Open communication (Enable). (1 on the pic)
+   - Closed communication. (2 on the pic)
+   - Used (3 on the pic)
+     ![FirstStep](./Pics/7.png)
 
 ## Example
 

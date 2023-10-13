@@ -51,8 +51,8 @@ namespace AbilityNodeEditor
             base.UpdateNode(e, viewRect);
         }
 
-        internal override NodeOutput GetNodeOutput() => Output;
-        internal override List<NodeInput> GetNodeInput() =>
+        public override NodeOutput GetNodeOutput() => Output;
+        public override List<NodeInput> GetNodeInput() =>
             new List<NodeInput>() { InputA, InputB };
         
 

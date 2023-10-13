@@ -38,7 +38,7 @@ namespace AbilityNodeEditor
             NodeUtils.DrawBoolProperty("IsEnable", ref IsEnable);
         }
 
-        internal override NodeOutput GetNodeOutput() => Output;
+        public override NodeOutput GetNodeOutput() => Output;
 
 #if UNITY_EDITOR
         internal override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)
