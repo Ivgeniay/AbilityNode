@@ -14,12 +14,28 @@ namespace AbilityNodeEditor
     public class AbilityNodeGraph : ScriptableObject
     {
         [field: SerializeField]internal string GraphName { get; set; } = "New Graph";
-        internal List<BaseNode> Nodes;
-        internal BaseNode SelectedNode {  get; private set; }
+        [SerializeField] internal List<BaseNode> Nodes;
+        [field: SerializeField] internal BaseNode SelectedNode {  get; private set; }
+        [SerializeField] protected List<BaseAbility> accessAbility;
         
         internal bool WantsConnection = false;
         internal BaseNode ConnectionNode = null;
-        
+        internal BaseAbility ConnectedAbility = null;
+
+        public void RegisterAbility(BaseAbility ability)
+        {
+            if (ability == null) return;
+            if (!accessAbility.Contains(ability))
+                accessAbility.Add(ability);
+        }
+
+        public void UnregisterAbility(BaseAbility ability)
+        {
+            if (ability == null) return;
+            if (accessAbility.Contains(ability))
+                accessAbility.Remove(ability);
+        }
+
 
         private void OnEnable()
         {
@@ -97,16 +113,10 @@ namespace AbilityNodeEditor
                         }
 
                         if (!setNode)
-                        {
                             DeselectAllNodes();
-                            //WantsConnection = false;
-                            //ConnectionNode = null;
-                        }
 
                         if (WantsConnection)
-                        {
                             WantsConnection = false;
-                        }
                     }
                 }
 

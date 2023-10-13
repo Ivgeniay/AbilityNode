@@ -1,6 +1,150 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4747057980662304249
+--- !u!114 &-8124674617795732408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: 12
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 11400000, guid: 67764dd796210f342981860788d756e6,
+    type: 2}
+  NodeName: 12
+  NodeRect:
+    serializedVersion: 2
+    x: 152
+    y: 382.20007
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 1
+  IsUsed: 1
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 1117088169239820229}
+    - {fileID: 9113166288776293740}
+  InputA:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputB:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -2258580764698781844}
+    <ConnectedNode>k__BackingField: {fileID: -2258580764698781844}
+--- !u!114 &-7716896444486768945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Eight
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Eight
+  NodeRect:
+    serializedVersion: 2
+    x: 695
+    y: 795.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 0
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField: []
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 7517997973912034941}
+    - {fileID: 608355642634039096}
+    <ConnectedNode>k__BackingField: {fileID: 608355642634039096}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &-4252446509924566496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: One
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: One
+  NodeRect:
+    serializedVersion: 2
+    x: 687
+    y: 197.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 1
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField: []
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 9113166288776293740}
+    <ConnectedNode>k__BackingField: {fileID: 9113166288776293740}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &-3086498917056084112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Four
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Four
+  NodeRect:
+    serializedVersion: 2
+    x: 690
+    y: 468.19995
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 0
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField: []
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 1117088169239820229}
+    <ConnectedNode>k__BackingField: {fileID: 1117088169239820229}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &-2272994072494039866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,36 +160,26 @@ MonoBehaviour:
   NodeName: Ability node
   NodeRect:
     serializedVersion: 2
-    x: 564
-    y: 299.2
+    x: 164
+    y: 40.200012
     width: 150
     height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
   IsEnable: 1
   IsUsed: 0
   isSelected: 0
   Output:
-    <IsOccupied>k__BackingField: 0
-    <ConnectedNode>k__BackingField: {fileID: 0}
+    <ConnectedNodes>k__BackingField: []
   InputA:
-    <IsOccupied>k__BackingField: 0
-    <ConnectedNode>k__BackingField: {fileID: 0}
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -2258580764698781844}
+    <ConnectedNode>k__BackingField: {fileID: -2258580764698781844}
   InputB:
-    <IsOccupied>k__BackingField: 1
-    <ConnectedNode>k__BackingField: {fileID: 7640660633181337710}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f82e54de246a28c42887d97d433a21ab, type: 3}
-  m_Name: TestGraph
-  m_EditorClassIdentifier: 
-  <GraphName>k__BackingField: TestGraph
---- !u!114 &7640660633181337710
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &-2258580764698781844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,17 +195,23 @@ MonoBehaviour:
   NodeName: Ability root node
   NodeRect:
     serializedVersion: 2
-    x: 223
-    y: 249.20001
+    x: -234
+    y: 539.2
     width: 200
     height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 0
+  modeSkin: {fileID: 0}
   IsEnable: 1
   IsUsed: 1
   isSelected: 0
   Output:
-    <IsOccupied>k__BackingField: 0
-    <ConnectedNode>k__BackingField: {fileID: -4747057980662304249}
---- !u!114 &8172915330157681242
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -748170626941934064}
+    - {fileID: -8124674617795732408}
+    - {fileID: 8117205379675527093}
+    - {fileID: -2272994072494039866}
+--- !u!114 &-2078283037703975593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,29 +221,360 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: Ability node
+  m_Name: Five
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 0}
-  NodeName: Ability node
+  NodeName: Five
   NodeRect:
     serializedVersion: 2
-    x: 792
-    y: 263.2
+    x: 693
+    y: 550.2
     width: 150
     height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
   IsEnable: 0
   IsUsed: 0
   isSelected: 0
   Output:
-    <IsOccupied>k__BackingField: 0
-    <ConnectedNode>k__BackingField: {fileID: 0}
+    <ConnectedNodes>k__BackingField: []
   InputA:
-    <IsOccupied>k__BackingField: 0
+    <ConnectedNodes>k__BackingField: []
     <ConnectedNode>k__BackingField: {fileID: 0}
   InputB:
-    <IsOccupied>k__BackingField: 0
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 6627478183148830615}
+    <ConnectedNode>k__BackingField: {fileID: 6627478183148830615}
+--- !u!114 &-1979399325911648169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Three
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Three
+  NodeRect:
+    serializedVersion: 2
+    x: 689
+    y: 385.20007
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 0
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField: []
+  InputA:
+    <ConnectedNodes>k__BackingField: []
     <ConnectedNode>k__BackingField: {fileID: 0}
---- !u!114 &8275162091877882265
+  InputB:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 1117088169239820229}
+    <ConnectedNode>k__BackingField: {fileID: 1117088169239820229}
+--- !u!114 &-748170626941934064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: 321
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 11400000, guid: cf13b884353f486478fbe687a6d4d891,
+    type: 2}
+  NodeName: 321
+  NodeRect:
+    serializedVersion: 2
+    x: 175
+    y: 677.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 1
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 608355642634039096}
+    - {fileID: 6627478183148830615}
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -2258580764698781844}
+    <ConnectedNode>k__BackingField: {fileID: -2258580764698781844}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f82e54de246a28c42887d97d433a21ab, type: 3}
+  m_Name: TestGraph
+  m_EditorClassIdentifier: 
+  <GraphName>k__BackingField: TestGraph
+  Nodes:
+  - {fileID: -2258580764698781844}
+  - {fileID: -8124674617795732408}
+  - {fileID: 9113166288776293740}
+  - {fileID: 1117088169239820229}
+  - {fileID: -748170626941934064}
+  - {fileID: 8117205379675527093}
+  - {fileID: -2272994072494039866}
+  - {fileID: 6627478183148830615}
+  - {fileID: 608355642634039096}
+  - {fileID: 1763991275608995669}
+  - {fileID: 5244293851528673406}
+  - {fileID: -7716896444486768945}
+  - {fileID: -2078283037703975593}
+  - {fileID: -3086498917056084112}
+  - {fileID: -1979399325911648169}
+  - {fileID: 7517997973912034941}
+  - {fileID: -4252446509924566496}
+  <SelectedNode>k__BackingField: {fileID: 7517997973912034941}
+  accessAbility:
+  - {fileID: 11400000, guid: 67764dd796210f342981860788d756e6, type: 2}
+  - {fileID: 11400000, guid: 059c80fc4aa52e243b4f507f58cfc588, type: 2}
+  - {fileID: 11400000, guid: 07673db6cd0621d459bc9ac667c84682, type: 2}
+--- !u!114 &608355642634039096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: 333
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: 333
+  NodeRect:
+    serializedVersion: 2
+    x: 446
+    y: 750.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 1
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -7716896444486768945}
+    - {fileID: 5244293851528673406}
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -748170626941934064}
+    <ConnectedNode>k__BackingField: {fileID: -748170626941934064}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 8117205379675527093}
+--- !u!114 &1117088169239820229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: 5555
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 11400000, guid: cf13b884353f486478fbe687a6d4d891,
+    type: 2}
+  NodeName: 5555
+  NodeRect:
+    serializedVersion: 2
+    x: 439
+    y: 427.20007
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 1
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -3086498917056084112}
+    - {fileID: -1979399325911648169}
+  InputA:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputB:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -8124674617795732408}
+    <ConnectedNode>k__BackingField: {fileID: -8124674617795732408}
+--- !u!114 &1763991275608995669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Six
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Six
+  NodeRect:
+    serializedVersion: 2
+    x: 696
+    y: 633.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 0
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField: []
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 6627478183148830615}
+    <ConnectedNode>k__BackingField: {fileID: 6627478183148830615}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &5244293851528673406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Seven
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: Seven
+  NodeRect:
+    serializedVersion: 2
+    x: 696
+    y: 713.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 0
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField: []
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 608355642634039096}
+    <ConnectedNode>k__BackingField: {fileID: 608355642634039096}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &6627478183148830615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: 222
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 0}
+  NodeName: 222
+  NodeRect:
+    serializedVersion: 2
+    x: 444
+    y: 597.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 0
+  IsUsed: 0
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 1763991275608995669}
+    - {fileID: -2078283037703975593}
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -748170626941934064}
+    <ConnectedNode>k__BackingField: {fileID: -748170626941934064}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &7517997973912034941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: Two
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 11400000, guid: 07673db6cd0621d459bc9ac667c84682,
+    type: 2}
+  NodeName: Two
+  NodeRect:
+    serializedVersion: 2
+    x: 682
+    y: 283.2
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 1
+  IsUsed: 1
+  isSelected: 1
+  Output:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -7716896444486768945}
+  InputA:
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+  InputB:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 9113166288776293740}
+    <ConnectedNode>k__BackingField: {fileID: 9113166288776293740}
+--- !u!114 &8117205379675527093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,19 +590,60 @@ MonoBehaviour:
   NodeName: Ability node
   NodeRect:
     serializedVersion: 2
-    x: 567
-    y: 175.2
+    x: 171
+    y: 1027.2
     width: 150
     height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
   IsEnable: 1
   IsUsed: 0
-  isSelected: 1
+  isSelected: 0
   Output:
-    <IsOccupied>k__BackingField: 0
-    <ConnectedNode>k__BackingField: {fileID: 0}
+    <ConnectedNodes>k__BackingField: []
   InputA:
-    <IsOccupied>k__BackingField: 1
-    <ConnectedNode>k__BackingField: {fileID: 7640660633181337710}
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -2258580764698781844}
+    <ConnectedNode>k__BackingField: {fileID: -2258580764698781844}
   InputB:
-    <IsOccupied>k__BackingField: 0
+    <ConnectedNodes>k__BackingField: []
+    <ConnectedNode>k__BackingField: {fileID: 0}
+--- !u!114 &9113166288776293740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
+  m_Name: 4444
+  m_EditorClassIdentifier: 
+  <Ability>k__BackingField: {fileID: 11400000, guid: 059c80fc4aa52e243b4f507f58cfc588,
+    type: 2}
+  NodeName: 4444
+  NodeRect:
+    serializedVersion: 2
+    x: 432
+    y: 255.20007
+    width: 150
+    height: 65
+  <parentGraph>k__BackingField: {fileID: 11400000}
+  <NodeType>k__BackingField: 1
+  modeSkin: {fileID: 0}
+  IsEnable: 1
+  IsUsed: 1
+  isSelected: 0
+  Output:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: 7517997973912034941}
+    - {fileID: -4252446509924566496}
+  InputA:
+    <ConnectedNodes>k__BackingField:
+    - {fileID: -8124674617795732408}
+    <ConnectedNode>k__BackingField: {fileID: -8124674617795732408}
+  InputB:
+    <ConnectedNodes>k__BackingField: []
     <ConnectedNode>k__BackingField: {fileID: 0}

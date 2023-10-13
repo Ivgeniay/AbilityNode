@@ -22,6 +22,9 @@ namespace AbilityNodeEditor
             InputB = new(this);
         }
 
+        public NodeInput GetInputA() => InputA;
+        public NodeInput GetInputB() => InputB;
+
         internal override void InitNode()
         {
             base.InitNode();
@@ -38,10 +41,9 @@ namespace AbilityNodeEditor
                 IsEnable = true;
             else
                 IsEnable = false;
-                
-            Ability?.SetEnable(IsEnable);
+
+            SetEnable(IsEnable);
             NodeUtils.DrawBoolProperty("IsEnable", ref IsEnable);
-            
         }
 
         internal override void UpdateNode(Event e, Rect viewRect)
@@ -50,10 +52,9 @@ namespace AbilityNodeEditor
         }
 
         internal override NodeOutput GetNodeOutput() => Output;
-        internal override List<NodeInput> GetNodeInput()
-        {
-            return new List<NodeInput>() { InputA, InputB };
-        }
+        internal override List<NodeInput> GetNodeInput() =>
+            new List<NodeInput>() { InputA, InputB };
+        
 
 #if UNITY_EDITOR
         internal override void UpdateGraphGUI(Event e, Rect viewRect, GUISkin viewSkin)
@@ -72,14 +73,6 @@ namespace AbilityNodeEditor
                 {
                     parentGraph.WantsConnection = true;
                     parentGraph.ConnectionNode = this;
-
-                    //if (Output.ConnectedNode != null) {
-                    //    var inputs = Output.ConnectedNode.GetNodeInput();
-                    //    foreach (var input in inputs)
-                    //        if (input.ConnectedNode == this)
-                    //            input.ConnectedNode = null;
-                    //}
-                    //Output.ConnectedNode = null;
                 }
             }
 
@@ -118,12 +111,9 @@ namespace AbilityNodeEditor
             DrawInputLines();
         } 
 
-        private void OccupiedNode(NodeInput nodeInput)
-        {
-            nodeInput.ConnectedNode = parentGraph.ConnectionNode;
-            //parentGraph.ConnectionNode.Output.ConnectedNode = nodeInput.ParentNode;
-            nodeInput.IsOccupied = nodeInput.ConnectedNode != null ? true : false;
-        }
+        private void OccupiedNode(NodeInput nodeInput) =>
+            nodeInput.AddConnectedNode(parentGraph.ConnectionNode);
+        
 
         protected override void DisplaySkin(GUISkin viewSkin)
         {

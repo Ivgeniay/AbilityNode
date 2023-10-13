@@ -15,35 +15,29 @@ namespace AbilityNodeEditor
         [field: SerializeField] public BaseAbility Ability { get; internal set; }
         [SerializeField] internal string NodeName;
         [SerializeField] internal Rect NodeRect;
-        internal AbilityNodeGraph parentGraph;
-        internal NodeType NodeType { get; set; }
+        [field: SerializeField] internal AbilityNodeGraph parentGraph { get; set; }
+        [field: SerializeField] internal NodeType NodeType { get; set; }
 
-        protected GUISkin modeSkin;
+        [SerializeField] protected GUISkin modeSkin;
 
         [SerializeField] public bool IsEnable;
         [SerializeField] public bool IsUsed;
         [SerializeField] protected bool isSelected;
         [SerializeField] internal NodeOutput Output;
 
-        public void SetEnable(bool isEnable) => IsEnable = isEnable;
+        public void SetEnable(bool isEnable)
+        {
+            IsEnable = isEnable;
+            if (Ability != null) Ability.SetEnable(isEnable);//.IsEnable = isEnable;
+        }
         internal virtual NodeOutput GetNodeOutput() => null;
         internal virtual List<NodeInput> GetNodeInput() => null;
 
-        internal virtual void InitNode() 
-        { 
-            
-        }
-
-        internal virtual void UpdateNode(Event e, Rect viewRect)
-        {
+        internal virtual void InitNode() { }
+        internal virtual void UpdateNode(Event e, Rect viewRect) =>
             ProcessEvent(e, viewRect);
-        }
-
-        internal virtual void SelectNode(bool isSelect = true)
-        {
-            isSelected = isSelect;
-        }
-
+        internal virtual void SelectNode(bool isSelect = true) => 
+            isSelected = isSelect; 
         protected abstract void DisplaySkin(GUISkin viewSkin);
 
 #if UNITY_EDITOR
@@ -64,10 +58,25 @@ namespace AbilityNodeEditor
             if (Ability != null)
             {
                 Ability?.SetName(abilityName);
-                Ability?.SetUsed(isUsed);
+                SetUseAbility(IsUsed);
             }
+
+            this.name = abilityName;
         }
 #endif
+
+        public void SetUseAbility(bool isUsed)
+        {
+            if (Ability != null)
+            {
+                if (isUsed != Ability.IsUsed)
+                {
+                    Ability?.SetUsed(isUsed);
+                    if (isUsed) parentGraph.RegisterAbility(Ability); 
+                    else parentGraph.UnregisterAbility(Ability);
+                }
+            }
+        }
         private void ProcessEvent(Event e, Rect viewRect) 
         {
             if (!isSelected) return;

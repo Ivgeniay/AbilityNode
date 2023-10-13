@@ -23,7 +23,7 @@ namespace AbilityNodeEditor
         {
             defaultViewTitle = title;
             ViewTitle = title;
-            GetEditorSkin();
+            viewSkin = GetEditorSkin();
         }
 
         internal virtual void OnChangeGraphHandler(AbilityNodeGraph nodeGraph)
@@ -48,9 +48,8 @@ namespace AbilityNodeEditor
         }
 
         internal virtual void ProcessEvents(Event e) { }
-        protected void GetEditorSkin() { 
-            viewSkin = Resources.Load<GUISkin>("GUISkins/EditorSkins/NodeEditorSkin");
-        }
+        protected GUISkin GetEditorSkin() => Resources.Load<GUISkin>("GUISkins/EditorSkins/NodeEditorSkin");
+        
 
     }
 }
