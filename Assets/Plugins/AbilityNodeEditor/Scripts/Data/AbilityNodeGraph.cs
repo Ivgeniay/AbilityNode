@@ -22,20 +22,25 @@ namespace AbilityNodeEditor
         internal BaseNode ConnectionNode = null;
         internal BaseAbility ConnectedAbility = null;
 
-        public void RegisterAbility(BaseAbility ability)
+        internal void RegisterAbility(BaseAbility ability)
         {
             if (ability == null) return;
             if (!accessAbility.Contains(ability))
                 accessAbility.Add(ability);
         }
 
-        public void UnregisterAbility(BaseAbility ability)
+        internal void UnregisterAbility(BaseAbility ability)
         {
             if (ability == null) return;
             if (accessAbility.Contains(ability))
                 accessAbility.Remove(ability);
         }
 
+        public IEnumerable<BaseAbility> GetAbilities()
+        {
+            foreach (BaseAbility ability in accessAbility) 
+                yield return ability;
+        }
 
         private void OnEnable()
         {

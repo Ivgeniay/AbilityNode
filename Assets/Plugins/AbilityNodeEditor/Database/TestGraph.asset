@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: 12
+  m_Name: Fire
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 11400000, guid: 67764dd796210f342981860788d756e6,
     type: 2}
-  NodeName: 12
+  NodeName: Fire
   NodeRect:
     serializedVersion: 2
-    x: 152
-    y: 382.20007
+    x: 206
+    y: 214.20006
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -54,8 +54,8 @@ MonoBehaviour:
   NodeName: Eight
   NodeRect:
     serializedVersion: 2
-    x: 695
-    y: 795.2
+    x: 749
+    y: 627.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -90,8 +90,8 @@ MonoBehaviour:
   NodeName: One
   NodeRect:
     serializedVersion: 2
-    x: 687
-    y: 197.2
+    x: 741
+    y: 29.200012
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -125,8 +125,8 @@ MonoBehaviour:
   NodeName: Four
   NodeRect:
     serializedVersion: 2
-    x: 690
-    y: 468.19995
+    x: 744
+    y: 300.19995
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -160,8 +160,8 @@ MonoBehaviour:
   NodeName: Ability node
   NodeRect:
     serializedVersion: 2
-    x: 164
-    y: 40.200012
+    x: 218
+    y: -127.79999
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -189,14 +189,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7e3943a907d875488e48e9bb00779c2, type: 3}
-  m_Name: Ability root node
+  m_Name: IntellectBase (RootNode)
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 0}
-  NodeName: Ability root node
+  NodeName: IntellectBase (RootNode)
   NodeRect:
     serializedVersion: 2
-    x: -234
-    y: 539.2
+    x: -193
+    y: 371.2
     width: 200
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -207,8 +207,8 @@ MonoBehaviour:
   isSelected: 0
   Output:
     <ConnectedNodes>k__BackingField:
-    - {fileID: -748170626941934064}
     - {fileID: -8124674617795732408}
+    - {fileID: -748170626941934064}
     - {fileID: 8117205379675527093}
     - {fileID: -2272994072494039866}
 --- !u!114 &-2078283037703975593
@@ -227,8 +227,8 @@ MonoBehaviour:
   NodeName: Five
   NodeRect:
     serializedVersion: 2
-    x: 693
-    y: 550.2
+    x: 747
+    y: 382.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -262,8 +262,8 @@ MonoBehaviour:
   NodeName: Three
   NodeRect:
     serializedVersion: 2
-    x: 689
-    y: 385.20007
+    x: 743
+    y: 217.20006
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -291,15 +291,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: 321
+  m_Name: Frost
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 11400000, guid: cf13b884353f486478fbe687a6d4d891,
     type: 2}
-  NodeName: 321
+  NodeName: Frost
   NodeRect:
     serializedVersion: 2
-    x: 175
-    y: 677.2
+    x: 229
+    y: 509.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -350,7 +350,7 @@ MonoBehaviour:
   - {fileID: -1979399325911648169}
   - {fileID: 7517997973912034941}
   - {fileID: -4252446509924566496}
-  <SelectedNode>k__BackingField: {fileID: 7517997973912034941}
+  <SelectedNode>k__BackingField: {fileID: 0}
   accessAbility:
   - {fileID: 11400000, guid: 67764dd796210f342981860788d756e6, type: 2}
   - {fileID: 11400000, guid: 059c80fc4aa52e243b4f507f58cfc588, type: 2}
@@ -365,20 +365,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: 333
+  m_Name: FrostBolt
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 0}
-  NodeName: 333
+  NodeName: FrostBolt
   NodeRect:
     serializedVersion: 2
-    x: 446
-    y: 750.2
+    x: 501
+    y: 583.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
   <NodeType>k__BackingField: 1
   modeSkin: {fileID: 0}
-  IsEnable: 1
+  IsEnable: 0
   IsUsed: 0
   isSelected: 0
   Output:
@@ -402,15 +402,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: 5555
+  m_Name: FireBolt
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 11400000, guid: cf13b884353f486478fbe687a6d4d891,
     type: 2}
-  NodeName: 5555
+  NodeName: FireBolt
   NodeRect:
     serializedVersion: 2
-    x: 439
-    y: 427.20007
+    x: 493
+    y: 259.20007
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -446,8 +446,8 @@ MonoBehaviour:
   NodeName: Six
   NodeRect:
     serializedVersion: 2
-    x: 696
-    y: 633.2
+    x: 750
+    y: 465.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -481,8 +481,8 @@ MonoBehaviour:
   NodeName: Seven
   NodeRect:
     serializedVersion: 2
-    x: 696
-    y: 713.2
+    x: 750
+    y: 545.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -510,14 +510,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: 222
+  m_Name: IceWall
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 0}
-  NodeName: 222
+  NodeName: IceWall
   NodeRect:
     serializedVersion: 2
-    x: 444
-    y: 597.2
+    x: 498
+    y: 429.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -554,8 +554,8 @@ MonoBehaviour:
   NodeName: Two
   NodeRect:
     serializedVersion: 2
-    x: 682
-    y: 283.2
+    x: 742
+    y: 120.2
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -563,7 +563,7 @@ MonoBehaviour:
   modeSkin: {fileID: 0}
   IsEnable: 1
   IsUsed: 1
-  isSelected: 1
+  isSelected: 0
   Output:
     <ConnectedNodes>k__BackingField:
     - {fileID: -7716896444486768945}
@@ -590,8 +590,8 @@ MonoBehaviour:
   NodeName: Ability node
   NodeRect:
     serializedVersion: 2
-    x: 171
-    y: 1027.2
+    x: 225
+    y: 859.19995
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}
@@ -619,15 +619,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697e0ef79b284ca428abe2ef7e12647a, type: 3}
-  m_Name: 4444
+  m_Name: HellFire
   m_EditorClassIdentifier: 
   <Ability>k__BackingField: {fileID: 11400000, guid: 059c80fc4aa52e243b4f507f58cfc588,
     type: 2}
-  NodeName: 4444
+  NodeName: HellFire
   NodeRect:
     serializedVersion: 2
-    x: 432
-    y: 255.20007
+    x: 484
+    y: 82.20006
     width: 150
     height: 65
   <parentGraph>k__BackingField: {fileID: 11400000}

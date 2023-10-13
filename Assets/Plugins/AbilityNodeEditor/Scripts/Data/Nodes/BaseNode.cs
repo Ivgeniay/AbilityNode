@@ -30,8 +30,8 @@ namespace AbilityNodeEditor
             IsEnable = isEnable;
             if (Ability != null) Ability.SetEnable(isEnable);//.IsEnable = isEnable;
         }
-        internal virtual NodeOutput GetNodeOutput() => null;
-        internal virtual List<NodeInput> GetNodeInput() => null;
+        public virtual NodeOutput GetNodeOutput() => null;
+        public virtual List<NodeInput> GetNodeInput() => null;
 
         internal virtual void InitNode() { }
         internal virtual void UpdateNode(Event e, Rect viewRect) =>
